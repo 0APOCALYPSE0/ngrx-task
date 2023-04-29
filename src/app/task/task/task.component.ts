@@ -23,7 +23,6 @@ export class TaskComponent implements OnInit{
 
   ngOnInit(): void {
     this.createForm();
-    // this.createTask();
     this.fetchTasks();
   }
 
