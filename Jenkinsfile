@@ -7,7 +7,9 @@ pipeline {
             }
         }
         stage('Print') {
-          echo 'hello world'
+          steps {
+                echo 'Hello, World!'
+            }
         }
         // stage('Test') {
         //     steps {
