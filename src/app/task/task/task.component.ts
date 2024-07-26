@@ -1,4 +1,3 @@
-import { reducers } from './../../index';
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Task, TaskState } from '../types/taskState.interface';
