@@ -1,6 +1,4 @@
-pipeline {
-    agent any
-    stages {
+node {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/0APOCALYPSE0/ngrx-task.git'
@@ -23,4 +21,3 @@ pipeline {
             }
         }
     }
-}
