@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     docker.build("${DOCKER_IMAGE}:${env.BUILD_ID}").inside {
-
+                        bat 'echo Running inside Docker container'
                     }
                 }
             }
