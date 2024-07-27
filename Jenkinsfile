@@ -6,26 +6,21 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/0APOCALYPSE0/ngrx-task.git'
             }
         }
-        stage('Print') {
-          steps {
-                echo 'Hello, World!'
+        stage('Test') {
+            steps {
+                bat 'npm install'
+                bat 'npm run ng test'
             }
         }
-        // stage('Test') {
-        //     steps {
-        //         sh 'npm install'
-        //         sh 'ng build test'
-        //     }
-        // }
-        // stage('Build') {
-        //   steps {
-        //     sh 'npm build'
-        //   }
-        // }
-        // stage('Deploy') {
-        //     steps {
-        //         bat 'move dist\\ngrx-task\\*.* C:\\nginx\\'
-        //     }
-        // }
+        stage('Build') {
+          steps {
+            bat 'npm run ng build'
+          }
+        }
+        stage('Deploy') {
+            steps {
+                bat 'move dist\\ngrx-task\\*.* C:\\nginx\\'
+            }
+        }
     }
 }
