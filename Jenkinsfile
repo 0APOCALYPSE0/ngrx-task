@@ -29,24 +29,24 @@ pipeline {
                 }
             }
         }
-        stage('Push') {
-            steps {
-                script {
-                    docker.withRegistry("${DOCKER_REGISTRY}", "${DOCKER_CREDENTIALS_ID}") {
-                        docker.image("${DOCKER_IMAGE}:${env.BUILD_ID}").push()
-                    }
-                }
-            }
-        }
-        stage('Deploy') {
-            // steps {
-            //     bat 'move dist\\ngrx-task\\*.* C:\\nginx\\'
-            // }
-            steps {
-                script {
-                    bat 'docker run -d -p 80:80 ${DOCKER_IMAGE}:${env.BUILD_ID}'
-                }
-            }
-        }
+        // stage('Push') {
+        //     steps {
+        //         script {
+        //             docker.withRegistry("${DOCKER_REGISTRY}", "${DOCKER_CREDENTIALS_ID}") {
+        //                 docker.image("${DOCKER_IMAGE}:${env.BUILD_ID}").push()
+        //             }
+        //         }
+        //     }
+        // }
+        // stage('Deploy') {
+        //     // steps {
+        //     //     bat 'move dist\\ngrx-task\\*.* C:\\nginx\\'
+        //     // }
+        //     steps {
+        //         script {
+        //             bat 'docker run -d -p 80:80 ${DOCKER_IMAGE}:${env.BUILD_ID}'
+        //         }
+        //     }
+        // }
     }
 }
